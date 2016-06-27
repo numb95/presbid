@@ -22,3 +22,15 @@ def register (request):
     return render(request, 'register.html', dict(args, **{'PageTile': " - Register"}))
 
 
+def login(request):
+    invalid_html=""
+    if request.method == 'POST':
+        user = auth.authenticate(username = request.POST.get('username',''), password = request.POST.get('password',''))
+        if user is not None:
+            auth,login(request,user)
+            return (HttpResponseRedirect('/'))
+        else:
+            invalid_html = get_template('invalid.html')
+        args = {}
+        args.update(csrf(request))
+        return render(request, 'login.html', dict(c, **{'PageTitle' : " - Login", 'invalid.html' : invalid_html}))
