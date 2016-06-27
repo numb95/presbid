@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+from presbid.accounts.models import CustomUser
 
 class Session(models.Model):
     date = models.DateTimeField()
@@ -13,23 +14,15 @@ class Session(models.Model):
 
 class Presentation(models.Model):
     title = models.CharField(max_length=100)
-    pers_name = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
-    phone_number = models.IntegerField(max_length=10)
     description = models.CharField(max_length=1000)
     created_date = models.DateTimeField(default=timezone.now)
+    person = models.ForeignKey(CustomUser)
 
     def __str__(self):
         return "title: %s person: %s" % (self.title, self.person)
 
 
-"""class Person(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
-    phone_number = models.IntegerField(max_length=10)
 
-    def __str__(self):
-        return "name: %s email: %s" % (self.name, self.email)"""
 
 
 class Comment(models.Model):
