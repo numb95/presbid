@@ -13,7 +13,9 @@ class Session(models.Model):
 
 class Presentation(models.Model):
     title = models.CharField(max_length=100)
-    person = models.ForeignKey(Person)
+    pers_name = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    phone_number = models.IntegerField(max_length=10)
     description = models.CharField(max_length=1000)
     created_date = models.DateTimeField(default=timezone.now)
 
@@ -21,13 +23,13 @@ class Presentation(models.Model):
         return "title: %s person: %s" % (self.title, self.person)
 
 
-class Person(models.Model):
+"""class Person(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     phone_number = models.IntegerField(max_length=10)
 
     def __str__(self):
-        return "name: %s email: %s" % (self.name, self.email)
+        return "name: %s email: %s" % (self.name, self.email)"""
 
 
 class Comment(models.Model):
