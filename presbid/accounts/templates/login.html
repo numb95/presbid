@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block pageBody %}
+    <section class="hero" id="login-hero">
+        <div class="texture-overlay"></div>
+        <div class="container">
+            <div class="row nav-wrapper">
+                <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                </div>
+            </div>
+            <div class="row hero-content">
+                <div class="col-md-12">
+                    <h1 class="animated fadeInDown">لطفن وارد شوید</h1>
+                    {{ invalid_html }}
+                    <form action="." method="POST" class="form-horizontal" dir="rtl" role="form">{% csrf_token %}
+                        <div class="form-group">
+                            <label for="inputUsername" class="col-sm-2 control-label">نام کاربری</label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" name="username" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">رمز عبور</label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" name="password" type="password"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label><input name="remember" type="checkbox"/> مرا به خاطر نگه دار</label>
+                                </div>
+                            </div>
+                        </div>
+			<input type="submit" name="submit" value="ورود"
+			                       class="btn-block btn-lg btn-primary learn-btn btn-margin">
+
+					       <br />
+                        <a href="#" class="learn-btn fadeInUp youtube-media">رمز عبور را فراموش کرده‌ام<i
+					class="fa fa-arrow-down"></i></a><br />
+		<a href="/register" class="learn-btn fadeInUp youtube-media">ایجاد حساب کاربری جدید<i
+				                                class="fa fa-arrow-down"></i></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
