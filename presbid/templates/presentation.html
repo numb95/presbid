@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block pageBody %}
+
+<body>
+<div class="container">
+        <form action="." method="POST" class="form-horizontal" dir="rtl" role="form">{% csrf_token %}
+                <div class="form-group">
+                        {{ form }}
+                        <input type="submit" name="submit" value="ثبت ارائه" class="btn-block btn-lg btn-primary learn-btn btn-margin">
+
+                </div>
+        </form>
+</div>
+
+
+</body>
+
+
+{% endblock %}
