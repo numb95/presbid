@@ -34,3 +34,7 @@ def login(request):
         args = {}
         args.update(csrf(request))
         return render(request, 'login.html', dict(c, **{'PageTitle' : " - Login", 'invalid.html' : invalid_html}))
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect('/')
