@@ -33,7 +33,9 @@ class Person(models.Model):
 class Comment(models.Model):
     text = models.CharField(max_length=200)
     sender_name = models.CharField(max_length=200)
+    email = models.CharField(max_length=100)
     created_date = models.DateTimeField(default=timezone.now)
+    type = models.CharField(max_length=10)
 
     def __str__(self):
         return "name: %s text: %s" % (self.sender_name, self.text)
