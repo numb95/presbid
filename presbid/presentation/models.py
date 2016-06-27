@@ -2,9 +2,9 @@ from django.db import models
 from django.utils import timezone
 
 
-class Sessions(models.Model):
+class Session(models.Model):
     date = models.DateTimeField()
-    number = models.PositiveSmallIntegerField(max_length=10)
+    number = models.PositiveSmallIntegerField(max_length=10,unique=True)
     created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -30,10 +30,17 @@ class Person(models.Model):
         return "name: %s email: %s" % (self.name, self.email)
 
 
-class Comments(models.Model):
-    reply_to = models.ForeignKey(max_length=100, null=True)
+class Comment(models.Model):
     text = models.CharField(max_length=200)
     sender_name = models.CharField(max_length=200)
+    created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return "name: %s text: %s" % (self.sender_name, self.text)
+
+class ReplyComment(models.Model):
+    comment = models.ForeignKey(Comment, related_name='+')
+    reply_to = models.ForeignKey(Comment, related_name='+')
+
+    def __str__(self):
+        return "%s -- %s" % (self.comment, self.reply_to)
