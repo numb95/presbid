@@ -34,7 +34,6 @@
       <tr>
         <th>نظرات کاربران </th>
         <th>ثبت سوال</th>
-        <th>دریافت اسلاید‌ها</th>
         <th>توضیحات</th>
         <th>عنوان ارائه</th>
         <th>نام ارائه دهنده</th>
@@ -43,69 +42,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td>
-	        <div class="row-centered">
+      
+          {% for data in Presentation %}
+             <tr>
+            <td>//</td>
+            <td><div class="row-centered">
 	        	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ask-question"><span class="badge">?</span></button>
-	        </div>
-         </td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>1</td>
+	        </div></td>
+             <td>{{data.description}}</td>
+             <td>{{data.title}}</td>
+             <td>{{data.person}}</td>
+             <td>{{data.id}}</td>
+             </tr>
+           {% endfor %}
       </tr>
-      <tr>
-       <td></td>
-        <td>
- 			<div class="row-centered">
-	        	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ask-question"><span class="badge">?</span></button>
-	        </div>
 
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>
-        	 <div class="row-centered">
-	        	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#ask-question"><span class="badge"><i class="fa fa-thumbs-up" aria-hidden="true"></i>12</span></button>
-	        	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ask-question"><span class="badge"><i class="fa fa-thumbs-up" aria-hidden="true"></i>2</span></button>
-	     </div>
-<i class="fa fa-thumbs-up" aria-hidden="true">
-        </td>
-        <td>
-
-		 <div class="row-centered">
-	        	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ask-question"><span class="badge">?</span></button>
-	     </div>
-
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>3</td>
-      </tr>
-      <tr>
-      	<td></td>
-        <td>
-
-			 	 <div class="row-centered">
-	        	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ask-question"><span class="badge">?</span></button>
-	        </div>
-
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>4</td>
-      </tr>
     </tbody>
   </table>
 </div>
