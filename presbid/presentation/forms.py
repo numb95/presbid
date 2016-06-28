@@ -1,5 +1,5 @@
 from django import forms
-from presbid.presentation.models import Presentation
+from presbid.presentation.models import Presentation, Comment
 
 class AddPresentation(forms.ModelForm):
     class Meta:
