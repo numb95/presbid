@@ -1,9 +1,7 @@
 from django.shortcuts import render
-from presbid.presentation.models import Presentation
-from presbid.presentation.forms import CommentForm
+from presentation.models import Presentation
 
 def preseantations_table(request):
-    user = request.user
     preseantations = []
     for pres in Presentation.objects.all():
         preseantations.append(pres)

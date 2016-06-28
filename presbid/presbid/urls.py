@@ -17,11 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^register/$', 'accounts.views.register'),
     url(r'^login/$', 'accounts.views.login'),
     url(r'^logout/$', 'accounts.views.logout'),
+    url(r'^$', 'presentation.views.preseantations_table')
 
 ]
