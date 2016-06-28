@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'presentation',
+    'accounts',
 ]
+
+CUSTOM_USER_MODEL = 'accounts.CustomUser'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

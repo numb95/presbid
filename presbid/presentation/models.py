@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-from presbid.accounts.models import CustomUser
+from accounts.models import CustomUser
 
 class Session(models.Model):
     date = models.DateTimeField()

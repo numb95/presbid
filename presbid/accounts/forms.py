@@ -3,7 +3,7 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.hashers import make_password
 
-from presbid.accounts.models import CustomUser
+from accounts.models import CustomUser
 
 class CustomRegistration(UserCreationForm):
     email = forms.EmailField(required=True,

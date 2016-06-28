@@ -7,8 +7,8 @@ from django.template import Context
 from django.template.loader import get_template
 from django.contrib import auth
 
-from presbid.accounts import models
-from presbid.accounts import forms
+from accounts import models
+from accounts import forms
 
 def register (request):
     if request.method == 'POST':
@@ -24,16 +24,18 @@ def register (request):
 
 def login(request):
     invalid_html=""
+
     if request.method == 'POST':
         user = auth.authenticate(username = request.POST.get('username',''), password = request.POST.get('password',''))
         if user is not None:
-            auth,login(request,user)
-            return (HttpResponseRedirect('/'))
+            auth.login(request,user)
+            return HttpResponseRedirect('/')
         else:
             invalid_html = get_template('invalid.html')
-        args = {}
-        args.update(csrf(request))
-        return render(request, 'login.html', dict(c, **{'PageTitle' : " - Login", 'invalid.html' : invalid_html}))
+
+    args = {}
+    args.update(csrf(request))
+    return render(request, 'login.html', dict(args, **{'PageTitle' : " - Login", 'invalid.html' : invalid_html}))
 
 def logout(request):
     auth.logout(request)
